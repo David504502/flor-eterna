@@ -1,0 +1,37 @@
+import turtle
+import time
+
+# Configuración inicial de la ventana y la tortuga
+screen = turtle.Screen()
+screen.bgcolor("white")
+screen.title("Flor Eterna")
+t = turtle.Turtle()
+t.speed(0)  # Configura la velocidad más rápida
+
+# Función para dibujar un pétalo de la flor
+def draw_petal():
+    t.color("red")
+    t.begin_fill()
+    t.circle(100, 60)
+    t.left(120)
+    t.circle(100, 60)
+    t.end_fill()
+
+# Función para dibujar la flor completa
+def draw_flower():
+    for _ in range(6):  # Dibuja 6 pétalos
+        draw_petal()
+        t.left(60)
+
+# Dibuja la flor eterna
+while True:
+    t.penup()
+    t.goto(0, -200)  # Posición inicial
+    t.pendown()
+    draw_flower()
+    time.sleep(2)  # Espera 2 segundos antes de redibujar la flor
+
+    t.clear()  # Limpia la pantalla para redibujar la flor
+
+# Cierra la ventana al hacer clic en ella
+screen.exitonclick()
